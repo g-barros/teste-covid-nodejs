@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+select {
+  display: block;
+  padding: .5rem;
+  background: transparent;
+  border: 1px solid #cdcdcd;
+  border-radius: 4px;
+  font-size: .95rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: .95rem;
+  display: block;
+  margin: .5rem 0;
+}
+
+button {
+  display: block;
+  background: #2581DC;
+  border: 1px solid #1E6BD6;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+  font-family: sans-serif;
+  padding: .5rem 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1;
+  margin: .5rem 0;
+  border-radius: 18px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid #aaa;
+}
+
+tbody tr:hover {
+  background: #aaa;
+  opacity: 0.6;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= title %></h1>
+      <div class="container">
+        <form action="/">
+          <label>Estado</label>
+          <select id="state" name="state">
+            <option value="">Escolha um estado...</option>
+            <% estados.forEach(estado => { %>
+              <option value="<%= estado.sigla %>"><%= estado.nome %> </option>
+            <% }) %> 
+          </select>
+          <label>Data de Início</label>
+          <input id="dateStart" name="dateStart" type="date" value="<%= pesquisa.dateStart %>" />
+          <label>Data de Término</label>
+          <input id="dateEnd" name="dateEnd" type="date" value="<%= pesquisa.dateEnd %>" />
+          <button type="submit">Pesquisar</button>
+        </form>
+      </div>
+      
+      <% if (!msg) { %> 
+          <table>
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Cidade</th>
+                <th>População</th>
+                <th>Casos em <%= moment(pesquisa.dateStart).format('DD/MM/YYYY') %></th>
+                <th>Casos em <%= moment(pesquisa.dateEnd).format('DD/MM/YYYY') %></th>
+                <th>Diferença Absoluta de Número de Casos</th>
+                <th>Diferença Percentual em Relação à População</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% cidadesMaiorPercentual.forEach((cidade, index) => { %>
+                <tr>
+                  <td><%= index+1 %> </td>
+                  <td><%= cidade.nome %></td>
+                  <td><%= cidade.populacao %></td>
+                  <td><%= cidade.confirmadosInicio %></td>
+                  <td><%= cidade.confirmadosFim %></td>
+                  <td><%= cidade.diferencaCasos %></td>
+                  <td><%= cidade.percentualDeCasos %> %</td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+          <% } else { %> 
+            <h3><%= msg %></h3>
+          <% } %>
+    </div>
+    <script src="/javascripts/index.js"></script> 
+  </body>
+</html>
