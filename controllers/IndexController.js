@@ -148,7 +148,7 @@ const IndexController = {
         
         //Envio dos dados via método POST para a API
         try {
-            const resposta = await fetch('http://localhost:3000/dados',{
+            const resposta = await fetch('https://us-central1-lms-nuvem-mestra.cloudfunctions.net/testApi',{
                 method: 'post',
                 body: JSON.stringify(infosEnvio),
                 headers: { 'Content-Type': 'application/json', 'MeuNome': 'Gustavo Barros de Figueiredo'}
